@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, precision_score, recall_score, roc_curve
 from data_loder import DataLoader
 from models import RandomForestEmander, HistGradientBoostingWonyoung, LogisticRegressionUtku, SupportVectorClassifierNilkanth
+import os
 
 
 app = flask.Flask(__name__)
@@ -126,6 +127,7 @@ def index():
 
 # Run the Flask application
 if __name__ == '__main__':
-    port = 5003
-    #app.run(host='0.0.0.0', debug=True)
-    app.run(host='127.0.0.1', port=port, debug=True)
+    #port = 5000
+    port = int(os.environ.get("PORT", 5000))  # Render dynamically assigns a port
+    app.run(host='0.0.0.0', debug=True)
+    a#pp.run(host='127.0.0.1', port=port, debug=True)
